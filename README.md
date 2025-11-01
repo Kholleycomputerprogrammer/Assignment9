@@ -1,51 +1,61 @@
-Social Network Graph
+# Social Network Graph
+
 This project implements a social networking platform using a graph data structure in Python. People are represented as nodes and friendships as bidirectional edges, allowing you to model real-world social connections where relationships are mutual and dynamic.
 
 The system uses two custom classes to manage user relationships: a Person class to represent individual users and a SocialNetwork class to manage the collection of people and their connections.
 
-Features
-Add new people to the network
-Create bidirectional friendships between users
-Handle errors when connecting non-existent users
-Print the entire network structure
-Prevent duplicate users
-Classes
-Person Class
+## Features
+
+- Add new people to the network
+- Create bidirectional friendships between users
+- Handle errors when connecting non-existent users
+- Print the entire network structure
+- Prevent duplicate users
+
+## Classes
+
+### `Person` Class
+
 Represents an individual user in the social network.
 
-Constructor
+**Constructor**
+- `Person(name: str)`
 
-Person(name: str)
-Attributes
+**Attributes**
+- `name` (str): The person's name
+- `friends` (list): List of Person objects this person is connected to
 
-name (str): The person's name
-friends (list): List of Person objects this person is connected to
-Methods
+**Methods**
+- `add_friend(friend: Person) -> None`: Adds another Person to the friends list
 
-add_friend(friend: Person) -> None: Adds another Person to the friends list
-Example Usage
+**Example Usage**
 
+```python
 alex = Person("Alex")
 jordan = Person("Jordan")
 print(alex.friends) # []
 alex.add_friend(jordan)
 print(alex.friends[0].name)  # Jordan
-SocialNetwork Class
+```
+
+### `SocialNetwork` Class
+
 Manages the entire social network and all user relationships.
 
-Constructor
+**Constructor**
+- `SocialNetwork()`
 
-SocialNetwork()
-Attributes
+**Attributes**
+- `people` (dict): Dictionary where keys are names and values are Person instances
 
-people (dict): Dictionary where keys are names and values are Person instances
-Methods
+**Methods**
+- `add_person(name: str) -> None`: Creates a new Person and adds them to the network
+- `add_friendship(person1_name: str, person2_name: str) -> None`: Establishes bidirectional friendship between two people
+- `print_network() -> None`: Prints all people and their friends
 
-add_person(name: str) -> None: Creates a new Person and adds them to the network
-add_friendship(person1_name: str, person2_name: str) -> None: Establishes bidirectional friendship between two people
-print_network() -> None: Prints all people and their friends
-Example Usage
+**Example Usage**
 
+```python
 network = SocialNetwork()
 
 # Add people
@@ -63,5 +73,5 @@ network.print_network()
 Alex: Jordan, Morgan
 Jordan: Alex
 Morgan: Alex
-'''t removing it.
-- `print_queue()`: Prints the queue from front to rear.
+'''
+```
